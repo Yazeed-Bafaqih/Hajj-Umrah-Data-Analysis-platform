@@ -1,23 +1,27 @@
-# مرجع بيانات أسواق الحج والعمرة
+# Hajj & Umrah Data Intelligence
 
-> **Prototype — نموذج أولي**
+> Prototype
 
-## عن المشروع
+## Overview
 
-نموذج أولي لمرجع بيانات مركز تحليل البيانات وذكاء الأعمال. يجمع بيانات الدول والأسواق المرتبطة بالحج والعمرة في مكان واحد، ويعرض المؤشرات والمقارنات بصورة واضحة تساعد على قراءة السوق وفهمه.
+A data reference developed for the Data Analytics and Business Intelligence Center. It brings together country indicators and Hajj and Umrah market data to support market analysis, visual comparison, and informed decision-making.
 
-## البيانات
+## Data Coverage
 
-يشمل النموذج:
+The prototype includes:
 
-- المؤشرات العامة للدول، مثل السكان والناتج المحلي ودخل الفرد ومؤشرات الاقتصاد، بالاعتماد على بيانات البنك الدولي.
-- بيانات الحج، وتشمل المتقدمين والحصص والدخول الفعلي واستغلال الحصة.
-- بيانات العمرة واتجاه أعداد المعتمرين عبر المواسم.
-- بيانات باقات الحج والعمرة والأسعار والخدمات وتكاليف الرحلة.
-- مقارنات بين الدول والأسواق وفق البيانات المتاحة.
+- Country indicators such as population, GDP, income per capita, and economic indicators sourced from the World Bank.
+- Hajj data, including applicants, quotas, actual arrivals, and quota utilization.
+- Umrah data and seasonal trends.
+- Hajj and Umrah package prices, services, and estimated trip costs.
+- Country and market comparisons based on the available data.
 
-بيانات الحج والعمرة والباقات المستخدمة حاليًا تجريبية ومخصصة لعرض فكرة النموذج.
+Hajj, Umrah, and package data currently used in this prototype is dummy data created for demonstration purposes.
 
-## إعداد وتطوير
+## Technologies
 
-**يزيد بافقيه**
+HTML · CSS · JavaScript · JSON
+
+## Designed & Developed by
+
+**Yazeed Bafaqih**
