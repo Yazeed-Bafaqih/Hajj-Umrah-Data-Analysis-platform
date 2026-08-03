@@ -18,7 +18,7 @@ The prototype includes:
 
 Hajj, Umrah, and package data currently used in this prototype is dummy data created for demonstration purposes.
 
-## Technologies
+## Built With
 
 HTML · CSS · JavaScript · JSON
 
