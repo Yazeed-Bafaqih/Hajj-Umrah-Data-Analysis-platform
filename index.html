@@ -46,7 +46,7 @@
           </article>
         </div>
         <div class="dashboard-secondary">
-          <article class="analysis-panel"><div class="panel-heading"><div><p class="section-number">توزيع البيانات السوقية</p><h2>حسب المنطقة</h2><small>الغرض: معرفة أين تتركز الدول ذات البيانات المتاحة.</small></div></div><div id="overview-donut" class="donut-layout"></div></article>
+          <article class="analysis-panel region-panel"><div class="panel-heading"><div><p class="section-number">توزيع البيانات السوقية</p><h2>حسب المنطقة</h2><small>الغرض: معرفة أين تتركز الدول ذات البيانات المتاحة.</small></div></div><div id="overview-donut" class="donut-layout"></div></article>
           <aside class="brief-panel dashboard-brief"><p class="section-number">الملخص التنفيذي</p><div id="executive-brief"></div><button class="text-link" data-go="sources">عرض منهجية القراءة ←</button></aside>
         </div>
       </section>
@@ -54,7 +54,7 @@
       <section id="countries" class="view">
         <div class="page-intro"><div><p class="section-number">الدول والأسواق</p><h1>المؤشرات العامة للدول</h1><p>كامل سجلات الملف، مع تمييز أسواق الحج والعمرة التجريبية.</p></div><div class="result-count"><strong id="country-count">217</strong><span>نتيجة</span></div></div>
         <div class="filter-bar">
-          <label class="search-field">بحث ذكي<input id="country-search" type="search" placeholder="اكتب اسم الدولة، حتى مع خطأ إملائي بسيط" /><button id="search-suggestion" class="search-suggestion" type="button"></button></label>
+          <label class="search-field"><span>البحث عن الدول</span><input id="country-search" type="search" placeholder="اسم الدولة أو الرمز" aria-label="البحث عن الدول" /><button id="search-suggestion" class="search-suggestion" type="button"></button></label>
           <label>المنطقة<select id="region-filter"><option value="all">كل المناطق</option></select></label>
           <label>مستوى الدخل<select id="income-filter"><option value="all">كل المستويات</option></select></label>
           <label>توفر البيانات<select id="market-filter"><option value="all">كل الدول</option><option value="market">تتوفر بيانات حج وعمرة</option><option value="general">بيانات عامة فقط</option></select></label>
@@ -66,13 +66,11 @@
 
       <section id="hajj" class="view">
         <div class="page-intro"><div><p class="section-number">الحج / الموسم <span data-season-label></span></p><h1>الحصص والوصول الفعلي</h1><p>بيانات تجريبية للدول المتوفرة، مصممة لاختبار شكل التحليل فقط.</p></div><span class="demo-badge">Dummy Data</span></div>
-        <div id="hajj-kpis" class="metric-ribbon compact"></div>
         <div class="analysis-grid">
           <article class="analysis-panel wide"><div class="panel-heading"><div><p class="section-number">الحصة مقابل الدخول</p><h2>أكبر عشرة أسواق</h2></div></div><div id="hajj-bars" class="horizontal-chart"></div></article>
           <article class="analysis-panel"><div class="panel-heading"><div><p class="section-number">فجوات الوصول</p><h2>من الطلب إلى الدخول</h2><small>الغرض: إظهار الفجوة بين المتقدمين والحصة والدخول.</small></div></div><div id="hajj-conversion" class="conversion-chart"></div></article>
         </div>
         <div class="data-table-wrap"><table><thead><tr><th>السوق</th><th>المتقدمون</th><th>الحصة</th><th>الدخول الفعلي</th><th>استغلال الحصة</th><th>الثقة</th></tr></thead><tbody id="hajj-table"></tbody></table></div>
-        <div class="dashboard-secondary two market-deep-dive"><article class="analysis-panel"><div class="panel-heading"><div><p class="section-number">تكلفة الرحلة</p><h2>السعر المعلن مقابل الدفع الفعلي</h2><small>باقة الحج المتوازنة · بيانات تجريبية</small></div></div><div id="hajj-package-gap" class="gap-chart"></div></article><article class="analysis-panel insight-panel"><div class="panel-heading"><div><p class="section-number">قراءة تحليلية</p><h2>ماذا تعني الفجوة؟</h2></div></div><div id="hajj-insights" class="insight-list"></div></article></div>
       </section>
 
       <section id="umrah" class="view">
@@ -82,8 +80,8 @@
           <article class="analysis-panel wide"><div class="panel-heading"><div><p class="section-number">الحجم والنمو</p><h2>أكبر أسواق العمرة</h2><small>الغرض: ترتيب الدول حسب عدد المعتمرين التجريبي.</small></div></div><div id="umrah-columns" class="lollipop-chart"></div></article>
           <article class="analysis-panel"><div class="panel-heading"><div><p class="section-number">الموسمية</p><h2>توزيع الرحلات خلال العام</h2><small>الغرض: تحديد أشهر الذروة.</small></div></div><div id="seasonality" class="seasonality"></div></article>
         </div>
-        <div class="dashboard-secondary two"><article class="analysis-panel"><div class="panel-heading"><div><p class="section-number">التوزيع الإقليمي</p><h2>حصة المناطق من البيانات المتاحة</h2><small>الموسم التجريبي <span data-season-label></span>.</small></div></div><div id="umrah-region-donut" class="donut-layout"></div></article></div>
-        <div class="dashboard-secondary two market-deep-dive"><article class="analysis-panel"><div class="panel-heading"><div><p class="section-number">تكلفة الرحلة</p><h2>فجوة سعر باقات العمرة</h2><small>المستوى المتوازن · السعر المعلن مقابل الدفع الفعلي</small></div></div><div id="umrah-package-gap" class="gap-chart"></div></article><article class="analysis-panel insight-panel"><div class="panel-heading"><div><p class="section-number">قراءة تحليلية</p><h2>الحجم والموسمية والسعر</h2></div></div><div id="umrah-insights" class="insight-list"></div></article></div>
+        <div class="dashboard-secondary two umrah-summary-row"><article class="analysis-panel"><div class="panel-heading"><div><p class="section-number">التوزيع الإقليمي</p><h2>حصة المناطق من البيانات المتاحة</h2><small>الموسم التجريبي <span data-season-label></span>.</small></div></div><div id="umrah-region-donut" class="donut-layout"></div></article><article class="analysis-panel insight-panel"><div class="panel-heading"><div><p class="section-number">قراءة تحليلية</p><h2>الحجم والموسمية والسعر</h2></div></div><div id="umrah-insights" class="insight-list"></div></article></div>
+        <div class="dashboard-secondary umrah-package-wide"><article class="analysis-panel"><div class="panel-heading"><div><p class="section-number">تكلفة الرحلة</p><h2>فجوة سعر باقات العمرة</h2><small>المستوى المتوازن · السعر المعلن مقابل الدفع الفعلي</small></div></div><div id="umrah-package-gap" class="gap-chart"></div></article></div>
       </section>
 
       <section id="compare" class="view">
