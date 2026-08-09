@@ -197,6 +197,10 @@ dialog#country-dialog{width:min(920px,calc(100vw - 48px));max-height:86vh;border
 .umrah-summary-row{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
 .umrah-summary-row>.analysis-panel{height:100%}
 .umrah-summary-row .donut-layout{min-height:300px}
+#umrah-region-donut{min-height:390px;display:grid;grid-template-columns:minmax(270px,320px) minmax(185px,1fr);gap:clamp(24px,3vw,44px);padding:28px;background:#fff;border:0;border-radius:20px}
+#umrah-region-donut .donut{width:clamp(270px,20vw,320px);height:clamp(270px,20vw,320px);justify-self:center}
+#umrah-region-donut .donut>div{width:56%;height:56%}
+#umrah-region-donut .donut-legend{font-size:clamp(10px,.85vw,13px);gap:14px;min-width:0;flex:1}
 .umrah-package-wide{grid-template-columns:1fr}
 .umrah-package-wide>.analysis-panel{width:100%}
 .umrah-package-wide .package-column-plot{
@@ -214,6 +218,92 @@ dialog#country-dialog{width:min(920px,calc(100vw - 48px));max-height:86vh;border
 .demand-gap-chart .formula-note{margin-top:24px}
 #hajj-table tr{cursor:default}
 #hajj-table tr:hover{background:transparent}
+.compare-clear-all{border-color:var(--rust);color:var(--rust);white-space:nowrap}
+.compare-clear-all[hidden]{display:none}
+.service-cell{display:grid;gap:6px;min-width:210px;max-width:310px;white-space:normal;line-height:1.45}
+.service-cell strong{font-weight:500}
+.service-cell small{width:max-content;max-width:100%;padding:4px 8px;border-radius:10px;background:var(--beige);color:var(--rust);font-size:9px}
+.package-column-plot,.percent-column-plot,.hajj-column-chart{border:0;border-radius:0;background-color:#fff;background-image:repeating-linear-gradient(to top,transparent 0,transparent 24%,rgba(92,112,106,.14) 24.3%,transparent 24.7%);box-shadow:none}
+.package-column-plot{padding-inline:clamp(18px,2vw,32px)}
+.percent-column-plot,.hajj-column-chart{padding-inline:clamp(20px,2.4vw,38px)}
+.combined-trend .trend-label-guide{stroke-width:1.5;stroke-dasharray:3 3;opacity:.75}
+.combined-trend circle{stroke:#fff;stroke-width:3}
+.combined-trend .trend-value-label{paint-order:stroke;stroke:#f5ede2;stroke-width:6px;stroke-linejoin:round;font-size:12px;font-weight:700}
+.seasonality{align-items:stretch;padding-top:18px}
+.month-column{height:100%;display:grid;grid-template-rows:minmax(0,1fr) 42px;align-items:end}
+.month-column i{align-self:end;width:100%;margin-bottom:0;border-radius:4px 4px 0 0}
+.month-column span{min-height:42px;display:grid;place-items:start center;padding-top:7px;line-height:1.15}
+.package-column-plot{position:relative;background-image:repeating-linear-gradient(to top,transparent 0,transparent calc(25% - 1px),#e1e7e4 25%,transparent calc(25% + 1px));background-position:0 -34px;background-size:100% calc(100% - 68px);background-repeat:repeat-y}
+.vbar-chart{height:270px;display:grid;grid-template-columns:1fr 54px;gap:12px;position:relative}
+.vbar-scale{grid-column:2;grid-row:1;display:flex;flex-direction:column;justify-content:space-between;padding:18px 0 31px;color:var(--muted);font-size:8px;text-align:right;direction:rtl}
+.vbar-chart .compare-vbars{grid-column:1;grid-row:1;height:270px;padding:20px 14px 0;border-bottom:1px solid var(--line);background:repeating-linear-gradient(to top,transparent 0,transparent calc(25% - 1px),#e4e9e6 25%,transparent calc(25% + 1px))}
+.vbar-chart .compare-vbars>div{height:100%}.vbar-chart .compare-vbars i{max-height:210px}
+.general-layout{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;align-items:stretch}
+.general-layout>.compare-chart-panel{height:100%;min-height:420px;display:flex;flex-direction:column}
+.general-layout>.compare-chart-panel>.panel-heading{min-height:64px}.general-layout>.compare-chart-panel>div:last-child{flex:1}
+.percent-wide .percent-column-plot{grid-template-columns:repeat(4,minmax(70px,1fr));height:290px;padding:35px 28px 0;gap:8px;background-color:#fff;background-image:repeating-linear-gradient(to top,transparent 0,transparent calc(25% - 1px),#dfe5e2 25%,transparent calc(25% + 1px))}
+.percent-wide .percent-scale{top:70px;bottom:34px}
+.shared-trend{background:#fff;border:1px solid var(--line)}.shared-trend svg{height:360px}.shared-trend polyline{stroke-width:5}.shared-trend circle{fill:#fff;stroke-width:3}
+.trend-value-table{margin-top:16px;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:10px}.trend-value-head,.trend-value-table>div{display:grid;grid-template-columns:1.25fr repeat(3,1fr);align-items:center}.trend-value-head{background:#edf1ef;color:var(--muted)}.trend-value-table>div>*{padding:10px 12px;border-left:1px solid var(--line);text-align:center}.trend-value-table>div>*:first-child{border-left:0;text-align:right}.trend-value-table>div+div{border-top:1px solid var(--line)}.trend-value-table strong{display:flex;align-items:center;gap:7px}.trend-value-table strong i{width:10px;height:10px;border-radius:50%}
+
+/* A single plot convention for every vertical bar chart: grid and zero line
+   live inside the plotting area, while country labels stay below it. */
+.package-column-plot,.percent-column-plot,.hajj-column-chart{position:relative;background-image:none!important}
+.package-column-plot::before,.percent-column-plot::before,.hajj-column-chart::before{content:"";position:absolute;z-index:0;left:clamp(18px,2vw,38px);right:clamp(18px,2vw,38px);pointer-events:none;background:repeating-linear-gradient(to top,transparent 0,transparent calc(25% - 1px),#dfe5e2 25%,transparent calc(25% + 1px));border-bottom:2px solid #cfd8d4}
+.package-column-plot::before{top:38px;bottom:52px}
+.percent-column-plot::before{top:35px;bottom:36px}
+.hajj-column-chart::before{top:45px;bottom:42px}
+.package-column-group,.percent-country,.hajj-country-group{position:relative;z-index:1}
+.column-pair,.percent-pair,.hajj-columns{border-bottom:0}
+
+.vbar-chart .compare-vbars{background-image:none;border-bottom:0;padding-bottom:0;position:relative}
+.vbar-chart .compare-vbars::before{content:"";position:absolute;z-index:0;left:14px;right:14px;top:20px;bottom:31px;background:repeating-linear-gradient(to top,transparent 0,transparent calc(25% - 1px),#dfe5e2 25%,transparent calc(25% + 1px));border-bottom:2px solid #cfd8d4;pointer-events:none}
+.vbar-chart .compare-vbars>div{position:relative;z-index:1;display:grid;grid-template-rows:minmax(0,1fr) 30px;gap:0}
+.vbar-column{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;border-bottom:0;position:relative}
+.vbar-column strong{margin-bottom:5px}
+.vbar-column i{flex:none}
+.vbar-chart .compare-vbars>div>span{display:grid;place-items:center;height:30px}
+
+.relative-trend{padding:18px 20px 14px}.relative-trend .trend-grid{direction:ltr;padding:0 18% 0 6%;font-size:11px;font-weight:700}.relative-trend svg{height:390px;overflow:visible}.relative-trend polyline{stroke-width:5;fill:none}.relative-trend circle{fill:#fff;stroke-width:3}.relative-trend .axis-label{fill:var(--muted);font-size:9px;text-anchor:end}.relative-trend .trend-end-label{font-size:12px;font-weight:700;text-anchor:start;paint-order:stroke;stroke:#fff;stroke-width:4px}.relative-trend .trend-end-value{fill:var(--muted);font-size:9px;text-anchor:start;paint-order:stroke;stroke:#fff;stroke-width:3px}
+.trend-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:0 0 18px}.trend-summary-item{border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:5px;background:#fff}.trend-summary-item strong{display:flex;align-items:center;gap:8px;font-size:12px}.trend-summary-item strong i{width:26px;height:4px;border-radius:999px}.trend-summary-item strong i.dotted{height:0;border-top:4px dotted currentColor;background:none!important}.trend-summary-item b{font-size:16px;color:var(--rust)}.trend-summary-item small{color:var(--muted);font-size:9px}.relative-trend{margin-top:0}.relative-trend svg{height:340px}.relative-trend .trend-grid{padding-right:20%}
+
+.umrah-growth-legend{display:flex;flex-wrap:wrap;gap:12px 20px;margin:0 0 18px}.umrah-growth-legend span{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:10px}.umrah-growth-legend i{width:12px;height:12px;border-radius:3px}.umrah-growth-legend strong{color:var(--ink);font-size:11px}.umrah-growth-legend b{color:var(--rust);font-size:10px}.umrah-growth-chart{display:grid;grid-template-columns:46px minmax(0,1fr);direction:ltr;min-width:620px}.umrah-growth-scale{height:400px;padding-bottom:42px;display:flex;flex-direction:column;justify-content:space-between;text-align:right;color:var(--muted);font-size:9px}.umrah-growth-plot{height:400px;display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));gap:28px;position:relative;background:repeating-linear-gradient(to top,transparent 0,transparent calc(25% - 1px),var(--line) 25%,transparent calc(25% + 1px))}.umrah-season-group{height:100%;display:grid;grid-template-columns:repeat(4,minmax(26px,1fr));align-items:end;gap:7px;padding:0 10px 42px;border-bottom:2px solid #cfd8d4;position:relative}.umrah-growth-column{display:block;min-height:12px;border-radius:9px 9px 0 0;position:relative;transition:transform .18s ease,filter .18s ease}.umrah-growth-column>b{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;color:var(--ink);font-size:8px;font-style:normal}.umrah-growth-column>span{position:absolute;z-index:5;bottom:calc(100% + 25px);left:50%;transform:translate(-50%,5px);width:max-content;max-width:190px;padding:8px 10px;border-radius:9px;background:var(--ink);color:#fff;font-size:9px;font-style:normal;line-height:1.6;opacity:0;visibility:hidden;pointer-events:none;transition:.18s}.umrah-growth-column:hover,.umrah-growth-column:focus{transform:translateY(-3px);filter:saturate(1.15)}.umrah-growth-column:hover>span{opacity:1;visibility:visible;transform:translate(-50%,0)}.umrah-season-label{position:absolute;left:0;right:0;bottom:8px;text-align:center;color:var(--ink);font-size:13px;direction:rtl}.compare-chart-panel:has(.umrah-growth-chart){overflow-x:auto}
+
+/* Unified plotting baseline: bars occupy the plot area and labels occupy a
+   separate row below one continuous zero line. */
+.package-column-plot::before{bottom:70px}
+.package-column-group{display:grid!important;grid-template-rows:minmax(0,1fr) 70px;align-items:stretch!important;gap:0!important}
+.column-pair{height:100%!important;min-height:0;justify-content:center}
+.package-column-meta{height:70px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:5px;padding-top:7px;text-align:center}
+.package-column-meta>strong{font-size:clamp(12px,.85vw,16px)}
+.package-column-meta>small{font-size:clamp(9px,.62vw,12px);color:var(--muted)}
+
+.percent-column-plot::before{bottom:36px}
+.percent-country{display:grid;grid-template-rows:minmax(0,1fr) 36px;align-items:stretch;gap:0;border-bottom:0}
+.percent-pair{height:100%!important;min-height:0;justify-content:center}
+.percent-country>strong{height:36px;display:grid;place-items:center}
+
+.hajj-column-chart::before{bottom:42px}
+.hajj-country-group{display:grid;grid-template-rows:minmax(0,1fr) 42px;align-items:stretch;gap:0}
+.hajj-columns{height:100%;min-height:0;justify-content:center}
+.hajj-country-group>strong{height:42px;display:grid;place-items:center}
+
+.vbar-chart .compare-vbars::before{bottom:30px}
+
+.umrah-growth-plot{background:none}
+.umrah-growth-plot::before{content:"";position:absolute;inset:0 0 42px;z-index:0;background:repeating-linear-gradient(to top,transparent 0,transparent calc(25% - 1px),var(--line) 25%,transparent calc(25% + 1px));border-bottom:2px solid #cfd8d4;pointer-events:none}
+.umrah-season-group{z-index:1;border-bottom:0}
+
+.market-bars,.rounded-columns,.seasonality{position:relative;border-bottom:0}
+.market-bars::before,.rounded-columns::before,.seasonality::before{content:"";position:absolute;z-index:0;left:0;right:0;border-bottom:1px solid var(--line);pointer-events:none}
+.market-bars::before{bottom:30px}.rounded-columns::before{bottom:34px}.seasonality::before{bottom:42px}
+.market-bar{display:grid;grid-template-rows:minmax(0,1fr) 16px 14px;gap:0;align-items:stretch;position:relative;z-index:1}
+.market-bar .column{align-self:end;justify-self:center}
+.market-bar span,.market-bar small{display:grid;place-items:center}
+.rounded-column{display:grid;grid-template-rows:minmax(0,1fr) 18px 16px;gap:0;align-items:stretch;position:relative;z-index:1}
+.rounded-column i{align-self:end;justify-self:center}
+.rounded-column strong,.rounded-column span{display:grid;place-items:center}
+.month-column{position:relative;z-index:1}
 
 @media(max-width:1180px){
   .umrah-package-wide .package-column-plot{grid-template-columns:repeat(3,minmax(110px,1fr));grid-auto-rows:275px}
@@ -223,12 +313,24 @@ dialog#country-dialog{width:min(920px,calc(100vw - 48px));max-height:86vh;border
 @media(max-width:900px){
   .umrah-summary-row{grid-template-columns:1fr}
   .umrah-summary-row .donut-layout{min-height:260px}
+  #umrah-region-donut{min-height:340px;grid-template-columns:minmax(240px,270px) minmax(170px,1fr);gap:20px}
+  #umrah-region-donut .donut{width:250px;height:250px}
+  #umrah-region-donut .donut-legend{min-width:0}
 }
 @media(max-width:760px){
   .umrah-package-wide .package-column-plot{grid-template-columns:repeat(2,minmax(105px,1fr));grid-auto-rows:255px;padding-inline:0;gap:14px}
   .umrah-package-wide .package-column-group{height:255px}
   .umrah-package-wide .column-pair{height:174px}
   .demand-gap-chart .compare-hbars>div{grid-template-columns:78px 1fr 58px;font-size:10px}
+  #umrah-region-donut{min-height:0;padding:20px;display:flex;flex-direction:column}
+  #umrah-region-donut .donut{width:230px;height:230px}
+  #umrah-region-donut .donut-legend{width:100%;font-size:10px}
+  .service-cell{min-width:170px}
+  .percent-wide .percent-column-plot{grid-template-columns:repeat(2,minmax(100px,1fr));height:auto;padding:10px 20px;background-image:repeating-linear-gradient(to top,transparent 0,transparent calc(25% - 1px),#dfe5e2 25%,transparent calc(25% + 1px))}
+  .percent-wide .percent-scale{display:flex}
+  .general-layout{grid-template-columns:1fr;grid-auto-rows:auto}.general-layout>.compare-chart-panel{min-height:390px}
+  .trend-value-table{overflow-x:auto}.trend-value-head,.trend-value-table>div{min-width:520px}
+  .umrah-growth-chart{min-width:700px}.umrah-growth-plot{gap:18px}.umrah-season-group{padding-inline:7px;gap:5px}
 }
 @media(max-width:420px){
   .umrah-package-wide .package-column-plot{grid-template-columns:1fr;grid-auto-rows:235px}
