@@ -1,4 +1,4 @@
-# Hajj & Umrah Data Intelligence
+# Hajj & Umrah Data Analysis
 
 > Prototype
 
